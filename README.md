@@ -1,3 +1,2 @@
-#Small Dog Legs
-##Using this Repo:
-Please don't use this repo. I am bad at my job.
+Using this Repo:
+Please don't yet. I am bad at my job and just want to get better at it. 
