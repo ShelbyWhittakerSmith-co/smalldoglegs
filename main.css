@@ -1,0 +1,13 @@
+body {
+  background-color: black;
+  color: white;
+}
+h1{
+	font: 40px;
+		margin-top:50px;
+		text-align: center;
+}
+h2{
+	margin-top: 50px;
+	text-align: center;
+}
