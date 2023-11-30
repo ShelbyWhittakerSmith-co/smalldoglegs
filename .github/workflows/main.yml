@@ -13,4 +13,4 @@ jobs:
       with:
         server: ftp.smalldoglegs.com
         username: shelbywhittakersmith@smalldoglegs.com
-        password: Clem2019Bea2022
+        password: ${{ secrets.FTP_PASSWORD }}
