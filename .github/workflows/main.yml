@@ -1,16 +1,35 @@
-on: push
-name: 🚀 Deploy website on push
+<<<<<<< Shelbys-Branch-Baby
+name: Deploy to cPanel
+on:
+  push:
+    branches:
+      - master
 jobs:
-  web-deploy:
-    name: 🎉 Deploy
+  FTP-Deploy-Action:
+    name: FTP-Deploy-Action
     runs-on: ubuntu-latest
     steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v3
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
-      with:
-        server: ftp.smalldoglegs.com
-        username: shelbywhittakersmith@smalldoglegs.com
-        password: ${{ secrets.FTP_PASSWORD }} 
+      - uses: actions/checkout@v2.1.0
+        with:
+          fetch-depth: 2
+      # Deploy to cPanel
+      - name: FTP-Deploy-Action
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+      # Purge CF's cache (optional)
+      - name: Purge cache
+        uses: jakejarvis/cloudflare-purge-action@master
+        env:
+          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
+          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
+=======
+---
+deployment:
+  tasks:
+   - export DEPLOYPATH=/home/user/public_html/
+   - /bin/cp index.html $DEPLOYPATH
+   - /bin/cp style/css $DEPLOYPATH
+>>>>>>> main
