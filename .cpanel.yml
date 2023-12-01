@@ -18,16 +18,4 @@ jobs:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
-      # Purge CF's cache (optional)
-      - name: Purge cache
-        uses: jakejarvis/cloudflare-purge-action@master
-        env:
-          CLOUDFLARE_ZONE: ${{ secrets.CLOUDFLARE_ZONE }}
-          CLOUDFLARE_TOKEN: ${{ secrets.CLOUDFLARE_TOKEN }}
-=======
----
-deployment:
-  tasks:
-   - export DEPLOYPATH=/home/user/public_html/
-   - /bin/cp index.html $DEPLOYPATH
-   - /bin/cp style/css $DEPLOYPATH
+
