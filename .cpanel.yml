@@ -22,6 +22,11 @@ jobs:
 ---
 deployment:
   tasks:
+<<<<<<< Updated upstream
    - export DEPLOYPATH=/home/user/public_html/
    - /bin/cp index.html $DEPLOYPATH
    - /bin/cp style/css $DEPLOYPATH
+=======
+    - export DEPLOYPATH=/home/example/public_html/
+    - /bin/cp -R images $DEPLOYPATH
+>>>>>>> Stashed changes
