@@ -1,34 +1,185 @@
-<<<<<<< Updated upstream
-
-<!DOCTYPE html>
-<html>
-   <head>
-      <title>Chutup</title>
-     # <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-   </head>
-   <body>
-      <div>Please look in the opposite direction.</div>
-   </body>
-</html>
-=======
 <!doctype html>
 <html lang="en">
     <head>
-    	<meta charset="utf-8"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-    	<link rel="stylesheet" type="text/css" href="main.css">
-    	<script src="main.js"></script>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="main.js"></script>
     </head>
+    <style> 
+        body {
+          background-color: black;
+          color: white;
+        }
+        h1{
+         font: 40px;
+            margin-top:50px;
+            text-align: center;
+        }
+        h2{
+         margin-top: 50px;
+         text-align: center;
+        }
+        table{
+            text-align: center;
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin: 2px;
+            padding: 5px;
+        }
+        .textbox{
+            text-align: center;
+            background-color:#202020;
+            margin-left: 100px;
+            margin-right: 100px;
+            overflow: auto;
+        }
+        .generic{
+            text-align: center;
+            float: center;
+        }
+        .dropbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+        }
+        .hobbies {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .dropdown {
+          position: relative;
+          display: inline-block;
+          padding: 16px;
+          
+        }
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          height:100px;
+          overflow: auto;
+        }
+        
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        .dropdown-content a:hover {background-color: #f1f1f1;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
     <body onload="myFunction()" >
-		<img src="images/ClemTopper.jpg" alt="Corgi Jumping" width = "101%">
-		<h1>Small Dog Legs</h1>
-		<h2>I wanted a domain that would be memorable to anyone who reads it. I figured this would hit close to home and stay in the memory of anyone who clicks on it. It also tells the person a lot about me!</h2>
-		<h2 id="demo">A Paragraph.</h2>
+      <img src="https://lh3.googleusercontent.com/pw/ADCreHcEtsTuXaFd2O98PGtuU-a0I1FfbVAxzmpM-Y_iNEBY6omyVBsmIJDkGZJ3aCFi9GUjP3w0z3QOAFtW0-Q0lLrYEAIa66vQQhmf6jFptWnexfN0OOJUQRlaM0PVsR1hNPqe2j0Yxt-42iYu-3Zi0zGD=w1920-h423-s-no-gm?authuser=0" alt="Corgi Jumping" width = "101%">
+      <h1>Small Dog Legs - A Shelby Smith Creation</h1>
+      <h2>Shelby Smith is a Software Developer and a Crazy Dog Lady. </h2>
+        <div class="textbox">
+      <h3>They Journey thus far</h3>
+      <p> Growing up, I always thought making websites and software would be cool but I grew up in a household that acted like you had to be so smart that you just did complex math equations for fun.
+      After working as a temp for a couple years and exploring all aspects of the workforce, I started looking narrowing my search for the job that would make me happy and time after time 'Software Developer' came up. 
+      I wasn't sure if I was smart enough but I knew that it was the direction that I wanted to go in. I enrolled into some college courses and started writing HTML.<br> 
+      Over the course of a few years, I got a degree in Computer Applications and took a job as an assistant for a small technology company called LiveView Technologies. 
+      I made it clear that I wanted to be a developer so they gave me opportunities to learn. I started writing Python in 2018 and have never stopped. <br>
+      Since then I have jumped around a lot within that company. When I started, each department was about the size of one person. 
+      I had no experience in the field but they started giving me projects, so I began pair programming with my coworker. I wrote programs that SSH'd into raspberry pies. 
+      I wrote programs that hit apis which would format hardware. I wrote apis for programs that sent out billing information. I learned a lot. <br> 
+      Eventually I began feeling stifled by always pair programming. I am quiet by nature and my coworker/friend was very outgoing. I wanted to have my own project but at the time there was only one product owner and he didn't know my team existed. The company was growing at an incredible
+      rate and the standards couldn't keep up with the speed of growth, so they were forming a QA department to encourage new standards.<br>
+      The team I had been on was using agile methods while the rest of the company was on waterfall. They wanted to move the entire company to agile, so I offered to be a Scrum Master while they developed the QA department. Doing so would give me an opportunity to work with a product owner for the first time.<br> 
+      <br> Being a Scrum Master on its face was working out but the company wasn't set up for scrum masters so afer a few months of being a Scrum Master, they asked me to go full time QA. 
+      <br>The QA team was still being built so I was scared I would end up a manual tester but I was very interested in QA so I went for it. Once again I had no experience in the field and no leadership so I began using selenium to automate tests while waiting for the next manual test case to come my way. 
+      <br> Once the QA department launched, I was relieved to see that my boss loved the direction I took. He told me to keep doing what I was doing and helped me get the tools to do things better. I felt like I was really contributing.
+      <br> Since then I have written End to End tests for both Front End Applications and Mobile Applications. I have used Python and Javscript. I have worked closely with engineers to ensure that they were writing their unit tests and following the CICD Pipeline. I have properly leveled up.</p>
+      </div>
+      
+        <div class=generic>
+            <h3>Politics?<br> Lets talk about Dogs instead</h3>
+            <img id='adogamous' onmouseover="adogamous()" onmouseout="adogamous2()" src="https://lh3.googleusercontent.com/pw/ADCreHdztGaEgQyXptASrIJMDCsA38S2TzQqhz_ylHFMKzZ3xNF64DX3F67x-ahvDze59Kl7fdtZayouyzT-COa5K9_ZcbORn6pvSEvjIcLhNeP-5TzUii9xueszjLZvXPHDLPFmQ5UY4BU-Y4qUQokVDzIf=w1009-h814-s-no-gm?authuser=0" alt="A-Dog-amous" width=200 height=200>    
+        </div>
+        <div class="hobbies">
+            <div class="dropdown">
+              <button class="dropbtn">WeekDay Interests</button>
+              <div class="dropdown-content">
+                <a href="#">Video Games</a>
+                <a href="#">TV Series</a>
+                <a href="#">Cooking</a>
+              </div>
+            </div>
+         
+            <div class="dropdown">
+              <button class="dropbtn">WeekEnd Interests</button>
+              <div class="dropdown-content">
+                <a href="#">Brewing</a>
+                <a href="#">Hosting</a>
+                <a href="#">Dog Walks</a>
+              </div>
+            </div>
+        </div>
+        <h2 id="demo">I had always been interested in software development but thought you had to be really smart to do it. I have since learned you just have to be persistent. </h2>
+        <div class="textbox"><h2>Video Games</h2>
+        <table width=100%;>
+            <tr>
+                <th>Game Title</th>
+                <th>Company who makes it</th>
+                <th>What is it?</th>
+                <th>What I love about it.</th>
+            </tr><tr>
+            <td>Don't Starve</td>
+            <td>Klei</td>
+            <th>If Tim Burton had a Survival Game, it would be this.</th>
+            <th>I love it because I can survive at my own pace and everyone sucks at it when they start.</th>
+            </tr>
+            <tr>
+            <td> Oxygen Not Included</td>
+            <td> Klei</td>
+            <td> Plays like Fallout Shelter</td>
+            <td> This game is a Dopamine Gold Mine for people who enjoy the success of completion.</td>
+            </tr>
+            <tr>
+                <td>StarDew Valley</td>
+                <td>I don't remeber</td>
+                <td>If Animal Crossing started out as 8 bit and on Gameboy Color.</td>
+                <td>I am a casual gamer so I like how I can continue to play that game without tensing up.</td>
+            </tr>
+            <tr>
+                <td>The Witcher 3</td>
+                <td>I don't remember</td>
+                <td>If you don't know this game, you have been under a rock.</td>
+                <td>I never played the originals but I started playing the 3rd when the Netflix series came out because it had been on my wish list for a long time. </td>
+            </tr>
+            <tr>
+                <td>
+                    Bioshock
+                </td>
+                <td>I don't remeber</td>
+                <td>If you don't know this game you have been under a rock for literal decades.</td>
+                <td>Its just a beautiful game. The first game I ever finished.</td>
+            </tr>
+        </table>
+        </div>
+   <script>
+        function myFunction() {
+         var current_time = Date.now();
+          document.getElementById("demo").innerHTML = current_time;
+        }
+        function adogamous() {
+            image = 'https://lh3.googleusercontent.com/pw/ADCreHcZBgjYK0GeJJP03f57UvwO2PjrKwMlhl2rjpaec-eouPrqAil5PF7HTOF91ZE-3olbDUq-dgv5hF1O3uhefP0aIjSxFP9xtd1P41DrbK9rFU5Yr4bnPgbK17BdxKMJK6bvlZ7JutZSMPLPJxiF_KW_=w180-h180-s-no-gm?authuser=0';
+            document.getElementById("adogamous").src = image;
+        }
+        function adogamous2() {
+            image = 'https://lh3.googleusercontent.com/pw/ADCreHdztGaEgQyXptASrIJMDCsA38S2TzQqhz_ylHFMKzZ3xNF64DX3F67x-ahvDze59Kl7fdtZayouyzT-COa5K9_ZcbORn6pvSEvjIcLhNeP-5TzUii9xueszjLZvXPHDLPFmQ5UY4BU-Y4qUQokVDzIf=w1009-h814-s-no-gm?authuser=0';
+            document.getElementById("adogamous").src = image;
+        }
+   </script>
+    </body> 
 
-		<img src="images/adogamous.jpeg" alt="A-Dog-amous" height="300">
-		
-	<script src="main.js"></script>
-    </body>
-
-</html>
-
+</html> 
