@@ -6,6 +6,140 @@
       <script src="main.js"></script>
     </head>
     <style> 
+    * {
+        box-sizing: border-box;
+      }
+
+      /* Set a background color */
+      body {
+        background-color: #474e5d;
+        font-family: Helvetica, sans-serif;
+      }
+
+      /* The actual timeline (the vertical ruler) */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* The actual timeline (the vertical ruler) */
+      .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: skyblue;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+
+      /* Container around content */
+      .container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 35%;
+      }
+
+      /* The circles on the timeline */
+      .container::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: white;
+        border: 4px solid #FF9F55;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      /* Place the container to the left */
+      .left {
+        left: 15%;
+      }
+
+      /* Place the container to the right */
+      .right {
+        left: 50%;
+      }
+
+      /* Add arrows to the left container (pointing right) */
+      .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid skyblue;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+      }
+
+      /* Add arrows to the right container (pointing left) */
+      .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid skyblue;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Fix the circle for containers on the right side */
+      .right::after {
+        left: -16px;
+      }
+
+      /* The actual content */
+      .content {
+        padding: 20px 30px;
+        background-color: skyblue;
+        position: relative;
+        border-radius: 6px;
+      }
+
+      /* Media queries - Responsive timeline on screens less than 600px wide */
+      @media screen and (max-width: 600px) {
+      /* Place the timelime to the left */
+        .timeline::after {
+          left: 31px;
+        }
+
+      /* Full-width containers */
+        .container {
+          width: 100%;
+          padding-left: 30px;
+          padding-right: 25px;
+        }
+
+      /* Make sure that all arrows are pointing leftwards */
+        .container::before {
+          left: 60px;
+          border: medium solid skyblue;
+          border-width: 5px 5px 5px 0;
+          border-color: transparent skyblue; transparent transparent;
+        }
+
+      /* Make sure all circles are at the same spot */
+        .left::after, .right::after {
+          left: 15px;
+        }
+
+      /* Make all right containers behave like the left ones */
+        .right {
+          left: 0%;
+        }
+      }
         body {
           background-color: black;
           color: white;
@@ -84,23 +218,10 @@
       <h2>Shelby Smith is a Software Developer and a Crazy Dog Lady. </h2>
         <div class="textbox">
       <h3>Shelby's Back Story</h3>
-      <p> Growing up, I always thought making websites and software would be cool but I grew up in a household that acted like you had to be so smart that you just did complex math equations for fun.
-      After working as a temp for a couple years and exploring all aspects of the workforce, I started looking narrowing my search for the job that would make me happy and time after time 'Software Developer' came up. 
-      I wasn't sure if I was smart enough but I knew that it was the direction that I wanted to go in. I enrolled into some college courses and started writing HTML.<br> 
-      Over the course of a few years, I got a degree in Computer Applications and took a job as an assistant for a small technology company called LiveView Technologies. 
-      I made it clear that I wanted to be a developer so they gave me opportunities to learn. I started writing Python in 2018 and have never stopped. <br>
-      Since then I have jumped around a lot within that company. When I started, each department was about the size of one person. 
-      I had no experience in the field but they started giving me projects, so I began pair programming with my coworker. I wrote programs that SSH'd into raspberry pies. 
-      I wrote programs that hit apis which would format hardware. I wrote apis for programs that sent out billing information. I learned a lot. <br> 
-      Eventually I began feeling stifled by always pair programming. I am quiet by nature and my coworker/friend was very outgoing. I wanted to have my own project but at the time there was only one product owner and he didn't know my team existed. The company was growing at an incredible
-      rate and the standards couldn't keep up with the speed of growth, so they were forming a QA department to encourage new standards.<br>
-      The team I had been on was using agile methods while the rest of the company was on waterfall. They wanted to move the entire company to agile, so I offered to be a Scrum Master while they developed the QA department. Doing so would give me an opportunity to work with a product owner for the first time.<br> 
-      <br> Being a Scrum Master on its face was working out   but the company wasn't set up for scrum masters so afer a few months of being a Scrum Master, they asked me to go full time QA. 
-      <br>The QA team was still being built so I was scared I would end up a manual tester but I was very interested in QA so I went for it. Once again I had no experience in the field and no leadership so I began using selenium to automate tests while waiting for the next manual test case to come my way. 
-      <br> Once the QA department launched, I was relieved to see that my boss loved the direction I took. He told me to keep doing what I was doing and helped me get the tools to do things better. I felt like I was really contributing.
-      <br> Since then I have written End to End tests for both Front End Applications and Mobile Applications. I have used Python and Javscript. I have worked closely with engineers to ensure that they were writing their unit tests and following the CICD Pipeline. I have properly leveled up.</p>
+      <div class="timeline">
+         <div id="timelinevalue" ></div>
       </div>
-      
+   </div>
         <div class=generic>
             <h3>Politics?<br> Lets talk about Dogs instead</h3>
             <img id='adogamous' onmouseover="adogamous()" onmouseout="adogamous2()" src="https://lh3.googleusercontent.com/pw/ADCreHdztGaEgQyXptASrIJMDCsA38S2TzQqhz_ylHFMKzZ3xNF64DX3F67x-ahvDze59Kl7fdtZayouyzT-COa5K9_ZcbORn6pvSEvjIcLhNeP-5TzUii9xueszjLZvXPHDLPFmQ5UY4BU-Y4qUQokVDzIf=w1009-h814-s-no-gm?authuser=0" alt="A-Dog-amous" width=200 height=200>    
@@ -126,7 +247,7 @@
         </div>
         <h2 id="demo">I had always been interested in software development but thought you had to be really smart to do it. I have since learned you just have to be persistent. </h2>
         <div class="textbox"><h2>Video Games</h2>
-        <table width=100%;>
+          <table width=100%;>
             <tr>
                 <th>Game Title</th>
                 <th>Company who makes it</th>
@@ -179,6 +300,31 @@
             image = 'https://lh3.googleusercontent.com/pw/ADCreHdztGaEgQyXptASrIJMDCsA38S2TzQqhz_ylHFMKzZ3xNF64DX3F67x-ahvDze59Kl7fdtZayouyzT-COa5K9_ZcbORn6pvSEvjIcLhNeP-5TzUii9xueszjLZvXPHDLPFmQ5UY4BU-Y4qUQokVDzIf=w1009-h814-s-no-gm?authuser=0';
             document.getElementById("adogamous").src = image;
         }
+        const timelist = [["2010", "Released from High School with no direction"], 
+         ["2014", "Figured out that I wanted to be a Developer. "], 
+         ["2015", "Started School"], 
+         ["2017", "Finished my Associates Degree in Computer Applications"], 
+         ["2018", "Got a job in the tech industry and worked my way into a development position."], 
+         ["2019", "Became a Full time Python Developer and moved in with my now husband"], 
+         ["2021", "Got Married and moved from a team heavy in pair programming to an Scrum Master/QA rep and then an SDET."], 
+         ["2022", "Worked as an SDET" ], 
+         ["2023", "Left LVT because we had outgrown one another." ], 
+         ["Present", "Working on this website and looking for a job with a culture that will fit me well."]];
+
+        let finalstring = "";
+        for (let i = 0; i < timelist.length; i++) {
+         if (i % 2 == 0) {
+          finalstring += "<div class=\"container left\">";
+             }
+         else {
+          finalstring += "<div class=\"container right\">"};
+         
+         finalstring += "<div class=\"content\">";
+         finalstring += "<h3>" + timelist[i][0] + "<\h3>";
+         finalstring += "<p>" + timelist[i][1] + "<\p><br></div></div></div>";
+         }
+
+         document.getElementById("timelinevalue").innerHTML = finalstring;
    </script>
     </body> 
 
