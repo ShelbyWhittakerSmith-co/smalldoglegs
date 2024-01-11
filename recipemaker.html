@@ -3,94 +3,10 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
-* {
-  box-sizing: border-box;
-  color: white;
-  text-align: center;
-}
+  <link rel="stylesheet" href="main.css">
 
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-}
-
-html {
-  font-family: "Lucida Sans", sans-serif;
-  background-color: black;
-}
-
-.menu ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  padding: 8px;
-  margin-bottom: 7px;
-  background-color: #33b5e5;
-  color: #ffffff;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-.menu li:hover {
-  background-color: #0099cc;
-}
-
-.aside {
-  background-color: #33b5e5;
-  padding: 15px;
-  color: #ffffff;
-  text-align: center;
-  font-size: 14px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-}
-
-/* For mobile phones: */
-[class*="col-"] {
-  width: 100%;
-}
-
-@media only screen and (min-width: 600px) {
-  /* For tablets: */
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
-}
-@media only screen and (min-width: 768px) {
-  /* For desktop: */
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
-}
-</style>
 </head>
-<body>
+<body onload="load_page()">
 
 <div class="header">
   <img src="https://lh3.googleusercontent.com/pw/ADCreHcEtsTuXaFd2O98PGtuU-a0I1FfbVAxzmpM-Y_iNEBY6omyVBsmIJDkGZJ3aCFi9GUjP3w0z3QOAFtW0-Q0lLrYEAIa66vQQhmf6jFptWnexfN0OOJUQRlaM0PVsR1hNPqe2j0Yxt-42iYu-3Zi0zGD=w1920-h423-s-no-gm?authuser=0" alt="Corgi Jumping" width = "100%">
@@ -110,9 +26,39 @@ html {
   <div class="col-3 col-s-12">
     <div class="aside">
       <h2>Recipe Picker</h2>
+
     </div>
   </div>
 </div>
+  <p id="frm1"></p>
+<div class="center_box">
+  <div class="center">
+<!--Recipe Name-->
+<label>Recipe Name: </label><input type="text" id="submitrecipe" onfocus="this.value=''" value="Name" class="input_fields" style="width:80%"><br>
+<!--Recipe Ingredients-->
+  <label>Recipe Ingredient: </label><input type="text" id="ingredientname" onfocus="this.value=''" value="Ingredient" class="input_fields">
+  <input type="text" id="ingredientcount" onfocus="this.value=''" value="Count" class="input_fields">
+  <input type="text" id="unit_type" onfocus="this.value=''" value="('Rack, Breast, Head, etc)" class="input_fields" hidden>
+  <div class="dropdown">
+    <button class="input_fields" id="selected_measure">Null</button>
+    <datalist class="dropdown-content"  id="measure_list">
+    </datalist>
+  </div>
+<button onclick="add_ingredient('ingredientname')" id="addingredient" class="input_fields">Add Ingredient</button><br>
+<!--Recipe Steps-->
+<label>Recipe Step: </label><input type="text" id="stepname" onfocus="this.value=''" value="Set Oven to 400&deg." class="input_fields" style="width:70%; height: 100%">
+  <button  onclick="add_step('stepname')" class="input_fields">Add Step</button>
+  <br><br>
+    </div>
+<!--Recipe Save-->
+<button onclick="submitRecipe('submitrecipe')"id="addstep" class="input_fields" >Save Recipe</button></div>
+<p id="demo"></p>
+
+
+<script type="modules" src="modules/main.js">
+
+</script>
+</form></div>
 </div>
 
 </body>

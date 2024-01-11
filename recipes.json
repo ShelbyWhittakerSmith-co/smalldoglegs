@@ -1,0 +1,45 @@
+{
+  'Honey Glazed Pork Chops':  {
+    "Ingredients": [
+        ["Yukon Gold Potatoes", 2, 'lbs'],
+        ['Garlic', 2, 'cloves'],
+        ['broccoli', 12, 'oz'],
+        ['Chicken Stock Concentrate', 1, 'Tbsp'],
+        ['Ranch Seasoning', 1, 'Tbsp'],
+        ['Honey', 1, 'Tbsp'],
+        ['Pork Chops', 2, 'chops'],
+        ['vegetable oil', 5, 'tsp'],
+        ['Butter', 1, 'Tbsp']
+      ],
+    "Steps": ['Turn Oven to 450',
+        'Wash and Dry all Produce',
+        'Dice Potatoes into 1/2 inch pieces.',
+        'Cut Large Broccoli Florets into bite sized pieces'
+        'On a baking sheet, put Broccoli and Potatoes on opposite sides.',
+        'Season with Salt, Pepper, and Oil.',
+        'Roast in 450 degree oven for 20-25 minutes.',
+        'Peel and Finely Chop Garlic.',
+        'Dry pork with paper towel and season with salt and pepper.'
+        'In a large pan, over medium heat, drizzel and warm some veggetable oil.'
+        'Cook Pork chops in pan until brown and cooked through (4-5 minutes per side)',
+        'Transfer Pork Chops to Plate and add another drizzel to oil in dirty pan.',
+        'Add garlic and cook for 30 seconds. ',
+        'Stir in chicken stock concentrate, honey, and a cup of water.'
+        'Simmer for a few minutes and scrape the bottom of the pan for pork char.'
+        'Turn off heat and add butter.',
+        'Season with Pepper',
+        'Divide Roasted potatoes and Broccoli onto two plates.',
+        'Drizzel sauce onto pork chops and serve.']
+    },
+  'Next Recipe': {
+    'Ingredients': [
+      [Name],[Quantity],[Unit of measurement],
+      [Name],[Quantity], [Unit of measurement]
+    ],
+    'Steps': [
+      'Step 1',
+      'Step 2',
+      'Step 3'
+    ]
+  }
+}
