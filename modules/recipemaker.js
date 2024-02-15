@@ -39,6 +39,6 @@ function onRecipeClick(){
   buildElement('div', 'content_box', 'recipeName')
   buildElement('div', 'content_box', 'recipeSteps')
   dom_val = document.getElementById('loading').innerHTML = 'Loading...'
-  hitAPI("https://smalldoglegs.fly.dev/recipe_id/2036")
-  // hitAPI("https://smalldoglegs.fly.dev/recipe/3"); 
+  // hitAPI("https://smalldoglegs.fly.dev/recipe_id/2036")
+  hitAPI("https://smalldoglegs.fly.dev/recipe/3"); 
 }
