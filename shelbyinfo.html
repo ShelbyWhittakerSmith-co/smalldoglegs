@@ -117,4 +117,332 @@ html {
 </div>
 
 </body>
-</html>
+</html><!doctype html>
+<html lang="en">
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <script src="main.js"></script>
+    </head>
+    <style> 
+    * {
+        box-sizing: border-box;
+      }
+
+      /* Set a background color */
+      body {
+        background-color: #474e5d;
+        font-family: Helvetica, sans-serif;
+      }
+
+      /* The actual timeline (the vertical ruler) */
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* The actual timeline (the vertical ruler) */
+      .timeline::after {
+        content: '';
+        position: absolute;
+        width: 6px;
+        background-color: skyblue;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -3px;
+      }
+
+      /* Container around content */
+      .container {
+        padding: 10px 40px;
+        position: relative;
+        background-color: inherit;
+        width: 35%;
+      }
+
+      /* The circles on the timeline */
+      .container::after {
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -17px;
+        background-color: white;
+        border: 4px solid #FF9F55;
+        top: 15px;
+        border-radius: 50%;
+        z-index: 1;
+      }
+
+      /* Place the container to the left */
+      .left {
+        left: 15%;
+      }
+
+      /* Place the container to the right */
+      .right {
+        left: 50%;
+      }
+
+      /* Add arrows to the left container (pointing right) */
+      .left::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        right: 30px;
+        border: medium solid skyblue;
+        border-width: 10px 0 10px 10px;
+        border-color: transparent transparent transparent white;
+      }
+
+      /* Add arrows to the right container (pointing left) */
+      .right::before {
+        content: " ";
+        height: 0;
+        position: absolute;
+        top: 22px;
+        width: 0;
+        z-index: 1;
+        left: 30px;
+        border: medium solid skyblue;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Fix the circle for containers on the right side */
+      .right::after {
+        left: -16px;
+      }
+
+      /* The actual content */
+      .content {
+        padding: 20px 30px;
+        background-color: skyblue;
+        position: relative;
+        border-radius: 6px;
+      }
+
+      /* Media queries - Responsive timeline on screens less than 600px wide */
+      @media screen and (max-width: 600px) {
+      /* Place the timelime to the left */
+        .timeline::after {
+          left: 31px;
+        }
+
+      /* Full-width containers */
+        .container {
+          width: 100%;
+          padding-left: 30px;
+          padding-right: 25px;
+        }
+
+      /* Make sure that all arrows are pointing leftwards */
+        .container::before {
+          left: 60px;
+          border: medium solid skyblue;
+          border-width: 5px 5px 5px 0;
+          border-color: transparent skyblue;
+        }
+
+      /* Make sure all circles are at the same spot */
+        .left::after, .right::after {
+          left: 15px;
+        }
+
+      /* Make all right containers behave like the left ones */
+        .right {
+          left: 0%;
+        }
+      }
+        body {
+          background-color: black;
+          color: white;
+        }
+        h1{
+         font: 40px;
+            margin-top:50px;
+            text-align: center;
+        }
+        h2{
+         margin-top: 50px;
+         text-align: center;
+        }
+        table{
+            text-align: center;
+            border-collapse: collapse;
+            border: 1px solid black;
+            margin: 2px;
+            padding: 5px;
+        }
+        .textbox{
+            text-align: center;
+            background-color:#202020;
+            margin-left: 100px;
+            margin-right: 100px;
+            overflow: auto;
+        }
+        .generic{
+            text-align: center;
+            float: center;
+        }
+        .dropbtn {
+          background-color: #04AA6D;
+          color: white;
+          padding: 16px;
+          font-size: 16px;
+          border: none;
+          cursor: pointer;
+        }
+        .hobbies {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .dropdown {
+          position: relative;
+          display: inline-block;
+          padding: 16px;
+          
+        }
+        .dropdown-content {
+          display: none;
+          position: absolute;
+          background-color: #f9f9f9;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+          z-index: 1;
+          height:100px;
+          overflow: auto;
+        }
+        
+        .dropdown-content a {
+          color: black;
+          padding: 12px 16px;
+          text-decoration: none;
+          display: block;
+        }
+        
+        .dropdown-content a:hover {background-color: #f1f1f1;}
+        .dropdown:hover .dropdown-content {display: block;}
+        .dropdown:hover .dropbtn {background-color: #3e8e41;}
+    </style>
+    <body onload="myFunction()" >
+   </div>
+        <div class=generic>
+            <h3>Small Dog Legs the Game</h3>
+            <button onclick="opengame()"> Click Here </button>
+            <h3>Politics?<br> Lets talk about something else.</h3>
+            <img id='adogamous' onmouseover="adogamous()" onmouseout="adogamous2()" src="https://lh3.googleusercontent.com/pw/ADCreHdztGaEgQyXptASrIJMDCsA38S2TzQqhz_ylHFMKzZ3xNF64DX3F67x-ahvDze59Kl7fdtZayouyzT-COa5K9_ZcbORn6pvSEvjIcLhNeP-5TzUii9xueszjLZvXPHDLPFmQ5UY4BU-Y4qUQokVDzIf=w1009-h814-s-no-gm?authuser=0" alt="A-Dog-amous" width=200 height=200>    
+        </div>
+        <div class="hobbies">
+            <div class="dropdown">
+              <button class="dropbtn">WeekDay Interests</button>
+              <div class="dropdown-content">
+                <a href="#">Video Games</a>
+                <a href="#">TV Series</a>
+                <a href="#">Cooking</a>
+              </div>
+            </div>
+         
+            <div class="dropdown">
+              <button class="dropbtn">WeekEnd Interests</button>
+              <div class="dropdown-content">
+                <a href="#">Brewing</a>
+                <a href="#">Hosting</a>
+                <a href="#">Dog Walks</a>
+              </div>
+            </div>
+        </div>
+        <h2 id="demo">I had always been interested in software development but thought you had to be really smart to do it. I have since learned you just have to be persistent. </h2>
+        <div class="textbox"><h2>Video Games</h2>
+          <table width=100%;>
+            <tr>
+                <th>Game Title</th>
+                <th>Company who makes it</th>
+                <th>What is it?</th>
+                <th>What I love about it.</th>
+            </tr><tr>
+            <td>Don't Starve</td>
+            <td>Klei</td>
+            <th>If Tim Burton had a Survival Game, it would be this.</th>
+            <th>I love it because I can survive at my own pace and everyone sucks at it when they start.</th>
+            </tr>
+            <tr>
+            <td> Oxygen Not Included</td>
+            <td> Klei</td>
+            <td> Plays like Fallout Shelter</td>
+            <td> This game is a Dopamine Gold Mine for people who enjoy the success of completion.</td>
+            </tr>
+            <tr>
+                <td>StarDew Valley</td>
+                <td>I don't remeber</td>
+                <td>If Animal Crossing started out as 8 bit and on Gameboy Color.</td>
+                <td>I am a casual gamer so I like how I can continue to play that game without tensing up.</td>
+            </tr>
+            <tr>
+                <td>The Witcher 3</td>
+                <td>I don't remember</td>
+                <td>If you don't know this game, you have been under a rock.</td>
+                <td>I never played the originals but I started playing the 3rd when the Netflix series came out because it had been on my wish list for a long time. </td>
+            </tr>
+            <tr>
+                <td>
+                    Bioshock
+                </td>
+                <td>I don't remeber</td>
+                <td>If you don't know this game you have been under a rock for literal decades.</td>
+                <td>Its just a beautiful game. The first game I ever finished.</td>
+            </tr>
+        </table>
+        </div>
+   <script>
+        function myFunction() {
+         var current_time = Date.now();
+          document.getElementById("demo").innerHTML = current_time;
+        }
+        function adogamous() {
+            image = 'https://lh3.googleusercontent.com/pw/ADCreHcZBgjYK0GeJJP03f57UvwO2PjrKwMlhl2rjpaec-eouPrqAil5PF7HTOF91ZE-3olbDUq-dgv5hF1O3uhefP0aIjSxFP9xtd1P41DrbK9rFU5Yr4bnPgbK17BdxKMJK6bvlZ7JutZSMPLPJxiF_KW_=w180-h180-s-no-gm?authuser=0';
+            document.getElementById("adogamous").src = image;
+        }
+        function adogamous2() {
+            image = 'https://lh3.googleusercontent.com/pw/ADCreHdztGaEgQyXptASrIJMDCsA38S2TzQqhz_ylHFMKzZ3xNF64DX3F67x-ahvDze59Kl7fdtZayouyzT-COa5K9_ZcbORn6pvSEvjIcLhNeP-5TzUii9xueszjLZvXPHDLPFmQ5UY4BU-Y4qUQokVDzIf=w1009-h814-s-no-gm?authuser=0';
+            document.getElementById("adogamous").src = image;
+        }
+        function onload() {
+            document.getElementById("whoami").txt = '';
+        }
+        const timelist = [["2010", "Released from High School with no direction"], 
+         ["2014", "Figured out that I wanted to be a Developer. "], 
+         ["2015", "Started School"], 
+         ["2017", "Finished my Associates Degree in Computer Applications"], 
+         ["2018", "Got a job in the tech industry and worked my way into a development position."], 
+         ["2019", "Became a Full time Python Developer and moved in with my now husband"], 
+         ["2021", "Got Married and moved from a team heavy in pair programming to an Scrum Master/QA rep and then an SDET."], 
+         ["2022", "Worked as an SDET" ], 
+         ["2023", "Left LVT because we had outgrown one another." ], 
+         ["Present", "Working on this website and looking for a job with a culture that will fit me well."]];
+
+        let finalstring = "";
+        for (let i = 0; i < timelist.length; i++) {
+         if (i % 2 == 0) {
+          finalstring += "<div class=\"container left\">";
+             }
+         else {
+          finalstring += "<div class=\"container right\">"};
+         
+         finalstring += "<div class=\"content\">";
+         finalstring += "<h3>" + timelist[i][0] + "<\h3>";
+         finalstring += "<p>" + timelist[i][1] + "<\p><br></div></div></div>";
+         }
+
+         document.getElementById("timelinevalue").innerHTML = finalstring;
+   </script>
+    </body> 
+
+</html> 
+ 
