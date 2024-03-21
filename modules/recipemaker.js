@@ -15,7 +15,7 @@ function recipeResults(results){
     document.getElementById(x+'readyin').innerHTML = "Ready In: " + results3['ReadyIn'] + "<br>  Serves: " + results3['Serves']
     document.getElementById(x+'ingredients').innerHTML =ingredients.join('<br>')
     document.getElementById(x+'Steps').innerHTML = recipe_steps.join('<br>')
-    grocery_list = grocery_list.concat(ingredients);
+    grocery_list = grocery_list.concat(ingredients);>>>>>>> main
   }
   document.getElementById('recipeSteps').innerHTML = 'Grocery List: ' + grocery_list
   document.getElementById('loading').innerHTML = ''
@@ -41,5 +41,6 @@ function onRecipeClick(){
   buildElement('div', 'content_box', 'recipeName')
   buildElement('div', 'content_box', 'recipeSteps')
   dom_val = document.getElementById('loading').innerHTML = 'Loading...'
+  // hitAPI("https://smalldoglegs.fly.dev/recipe_id/2036")
   hitAPI("https://smalldoglegs.fly.dev/recipe/3"); 
 }
