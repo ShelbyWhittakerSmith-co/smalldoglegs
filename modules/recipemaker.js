@@ -1,21 +1,23 @@
 function recipeResults(results){
   recipe_format = '<h2>'
-  grocery_list = []
+  let grocery_list = []
   results2 = JSON.parse(results)
   param = document.getElementById('recipeName').appendChild(document.createElement('p'))
   for (x in results2){
     results3 = results2[x]
     let ingredients = JSON.parse(JSON.parse(results3['Ingredients'])['Ingredients'])
     let recipe_steps = JSON.parse(JSON.parse(results3['Steps'])['Steps'])
-    buildElement("p", 'recipeName', x+'name')
+    buildElement("h2", 'recipeName', x+'name')
+    buildElement("p", 'recipeName', x+'readyin')
     buildElement("p", 'recipeName', x+'ingredients' )
     buildElement('p', 'recipeName', x+'Steps')
-    document.getElementById(x+'name').innerHTML = results3['Name']+  "<br>  Ready In: " + results3['ReadyIn'] + "<br>  Serves: " + results3['Serves']
+    document.getElementById(x+'name').innerHTML = results3['Name']
+    document.getElementById(x+'readyin').innerHTML = "Ready In: " + results3['ReadyIn'] + "<br>  Serves: " + results3['Serves']
     document.getElementById(x+'ingredients').innerHTML =ingredients.join('<br>')
     document.getElementById(x+'Steps').innerHTML = recipe_steps.join('<br>')
-    grocery_list.push(results3['Ingredients']);
+    grocery_list = grocery_list.concat(ingredients);>>>>>>> main
   }
-  document.getElementById('recipeSteps').innerHTML = 'Grocery List: ' + results3['Ingredients']
+  document.getElementById('recipeSteps').innerHTML = 'Grocery List: ' + grocery_list
   document.getElementById('loading').innerHTML = ''
   return 
 }
