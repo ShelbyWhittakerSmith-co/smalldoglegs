@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="recipelister.css">
+<script src="modules/recipelister.js"></script> 
+
+<title>Recipe Form</title>
+<style>
+    
+
+    .ingredient, .step {
+        margin-bottom: 10px;
+    }
+    .form-container {
+        width: 50%; /* Adjust width as needed */
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
+
+    html {
+    font-family: "Lucida Sans", sans-serif;
+    background-color: black;
+    color: white;
+    margin: 7px;
+    } 
+    .tabs{
+        border: 14px;
+        background-color: rgb(70, 131, 111);
+    }
+    .tabs onhover{
+        background-color: #0070cc;
+    }
+    .tabs button{
+        background-color: #0099cc;
+    }
+    .tabs img {
+        width: 150px;
+    }
+    h2{
+        float: center;
+    }
+</style>
+</head>
+<body onload="onRecipeListClick('recipe/all')">
+  <div class="header" id='dogheader'>
+        <img src="https://lh3.googleusercontent.com/pw/ADCreHcEtsTuXaFd2O98PGtuU-a0I1FfbVAxzmpM-Y_iNEBY6omyVBsmIJDkGZJ3aCFi9GUjP3w0z3QOAFtW0-Q0lLrYEAIa66vQQhmf6jFptWnexfN0OOJUQRlaM0PVsR1hNPqe2j0Yxt-42iYu-3Zi0zGD=w1920-h423-s-no-gm?authuser=0" alt="Corgi Jumping" width = "100%">
+        <div class="tabs">
+          <div>
+            <!-- <a href="shelbyinfo.html"><li>Shelby W. Smith</li></a> -->
+            <a href="index.html"><button href="recipemaker.html" ><img src="images/tabs/doghouseicon.png" ><br></img></button></a>
+            <a href="recipelister.html"><button href="recipelister.html"><img src="images/tabs/dogbowlicon.png" ><br></img></button></a>
+            <a href="doggame.html"><button href="recipemaker.html" ><img src="images/tabs/doggameicon.png" ><br></img></button></a>
+            <a href="test.html"><button href="recipemaker.html" ><img src="images/tabs/doginfoicon.png" ><br></img></button></a>
+            <!-- <a href="doggame.html"><li>A Dog Game</li></a> -->
+          </div>
+        </div>
+      </div>
+        <h1>Recipes Page</h1>
+      </div>
+
+      <div class="col-3 col-s-12">
+        <div class="aside">
+          <a href="recipelister.html"><li>List of Recipes</li></a>
+        </div>
+      </div>
+    </div>
+    <div class="center_box">
+      <div class="center" id="content_box">
+
+        <!-- <button type="submit" onclick="onRecipeListClick('recipe/all')">Get recipe</button> -->
+        <div id="loading"></div>
+      </div>
+    </div>
+    <div></div>
+  </body>
+</html>
