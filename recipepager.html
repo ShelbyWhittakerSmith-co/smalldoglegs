@@ -2,33 +2,87 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="recipemaker.css">
+      <!-- <link rel="stylesheet" href="recipemaker.css"> -->
       <script src="modules/recipemaker.js"></script> 
+      <style>
+
+        html {
+          font-family: "Lucida Sans", sans-serif;
+          background-color: black;
+          color: white;
+          margin: 7px;
+        } 
+      
+        .row::after {
+          content: "";
+          clear: both;
+          display: table;
+        }
+        .tabs{
+          border: 14px;
+          background-color: rgb(70, 131, 111);
+        }
+        .tabs onhover{
+          background-color: #0070cc;
+        }
+        .tabs button{
+          background-color: #0099cc;
+        }
+        .tabs img {
+          width: 150px;
+        .tabs button:hover{
+          background-color: #0070cc;
+        }
+      
+        ul{
+          list-style-type: none;
+          width: auto;
+        }
+      
+        .leftside{
+          height:100%;
+          width:auto;
+          margin: 1%;
+          list-style: none;
+          float: left;
+        }
+        .leftside button{
+          background-color: blueviolet;
+        }
+        .center{
+          text-align: center;
+          width: auto;
+          float: center;
+         }
+         .rightside{
+          float: right;
+          width: auto;
+         }
+      
+      
+      </style>
 
   </head>
   <body onload="buildRecipePage()">
-    <div class="header">
+    <div class="header" id='dogheader'>
       <img src="https://lh3.googleusercontent.com/pw/ADCreHcEtsTuXaFd2O98PGtuU-a0I1FfbVAxzmpM-Y_iNEBY6omyVBsmIJDkGZJ3aCFi9GUjP3w0z3QOAFtW0-Q0lLrYEAIa66vQQhmf6jFptWnexfN0OOJUQRlaM0PVsR1hNPqe2j0Yxt-42iYu-3Zi0zGD=w1920-h423-s-no-gm?authuser=0" alt="Corgi Jumping" width = "100%">
-    </div>
-    <div class="row">
-      <div class="col-3 col-s-3 menu">
-        <ul>
-          <a href="index.html"><li>Home</li></a>
-          <a href="recipelister.html"><li>List of Recipes</li></a>
-        </ul>
-      </div>
-
-      <div class="col-6 col-s-9">
-        <h1>The Recipe Page Officially</h1>
-      </div>
-
-      <div class="col-3 col-s-12">
-        <div class="aside">
-          <h2>Recipes</h2>
+      <div class="tabs">
+        <div>
+          <!-- <a href="shelbyinfo.html"><li>Shelby W. Smith</li></a> -->
+          <a href="index.html"><button><img src="images/tabs/doghouseicon.png" ><br></img></button></a>
+          <a href="recipelister.html"><button><img src="images/tabs/dogbowlicon.png" ><br></img></button></a>
+          <a href="doggame.html"><button href="recipemaker.html" ><img src="images/tabs/doggameicon.png" ><br></img></button></a>
+          <a href="addrecipe.html"><button href="addrecipe.html" ><img src="images/tabs/dogfoodicon.png" ><br></img></button></a>
+          <a href="shelbyinfo.html"><button href="recipemaker.html" ><img src="images/tabs/doginfoicon.png" ><br></img></button></a>
+          <!-- <a href="doggame.html"><li>A Dog Game</li></a> -->
         </div>
       </div>
     </div>
+      </div>
+    </div>
     <div class="center_box">
+      <h1>The Recipe Page Officially</h1>
+
       <div class="center" id="content_box">
       <div id="loading"></div>
       <button id="EditButton"></button>
