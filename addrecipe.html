@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recipe Form</title>
+<style>
+    
+
+    .ingredient, .step {
+        margin-bottom: 10px;
+    }
+    .form-container {
+        width: 50%; /* Adjust width as needed */
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+    }
+
+    html {
+    font-family: "Lucida Sans", sans-serif;
+    background-color: black;
+    color: white;
+    margin: 7px;
+    } 
+    .tabs{
+        border: 14px;
+        background-color: rgb(70, 131, 111);
+    }
+    .tabs onhover{
+        background-color: #0070cc;
+    }
+    .tabs button{
+        background-color: #0099cc;
+    }
+    .tabs img {
+        width: 150px;
+    }
+    h2{
+        float: center;
+    }
+</style>
+</head>
+<body>
+    <div class="header" id='dogheader'>
+        <img src="https://lh3.googleusercontent.com/pw/ADCreHcEtsTuXaFd2O98PGtuU-a0I1FfbVAxzmpM-Y_iNEBY6omyVBsmIJDkGZJ3aCFi9GUjP3w0z3QOAFtW0-Q0lLrYEAIa66vQQhmf6jFptWnexfN0OOJUQRlaM0PVsR1hNPqe2j0Yxt-42iYu-3Zi0zGD=w1920-h423-s-no-gm?authuser=0" alt="Corgi Jumping" width = "100%">
+        <div class="tabs">
+          <div>
+            <!-- <a href="shelbyinfo.html"><li>Shelby W. Smith</li></a> -->
+            <a href="index.html"><button href="recipemaker.html" ><img src="images/tabs/doghouseicon.png" ><br></img></button></a>
+            <a href="recipelister.html"><button href="recipelister.html"><img src="images/tabs/dogbowlicon.png" ><br></img></button></a>
+            <a href="doggame.html"><button href="recipemaker.html" ><img src="images/tabs/doggameicon.png" ><br></img></button></a>
+            <a href="test.html"><button href="recipemaker.html" ><img src="images/tabs/doginfoicon.png" ><br></img></button></a>
+            <!-- <a href="doggame.html"><li>A Dog Game</li></a> -->
+          </div>
+        </div>
+      </div>
+      
+    <h2>Recipe Form</h2>
+    <div class="form-container">
+        <form id="recipeForm">
+            <label for="recipeName">Name:</label>
+            <input type="text" id="recipeName" name="recipeName" required><br><br>
+
+            <label for="servingSize">Serving Size:</label>
+            <input type="text" id="servingSize" name="servingSize" required><br><br>
+
+            <label for="timeFrame">Time Frame:</label>
+            <input type="text" id="timeFrame" name="timeFrame" required><br><br>
+
+            <fieldset>
+                <legend>Ingredients:</legend>
+                <div id="ingredientList">
+                    <div class="ingredient">
+                        <input type="text" name="ingredient" value="" required>
+                        <!-- Add a hidden input for the first mandatory ingredient -->
+                        <input type="hidden" name="initialIngredient" value="Mandatory Ingredient 1">
+                    </div>
+                </div>
+                <button type="button" onclick="addIngredient()">Add Ingredient</button>
+            </fieldset><br>
+
+            <fieldset>
+                <legend>Steps:</legend>
+                <div id="stepList">
+                    <div class="step">
+                        <input type="text" name="step" value="" required>
+                        <!-- Add a hidden input for the first mandatory step -->
+                        <input type="hidden" name="initialStep" value="Mandatory Step 1">
+                    </div>
+                </div>
+                <button type="button" onclick="addStep()">Add Step</button>
+            </fieldset><br>
+
+            <button type="submit">Submit Recipe</button>
+        </form>
+    </div>
+
+    <script>
+        function addIngredient() {
+            const ingredientList = document.getElementById('ingredientList');
+            const newIngredient = document.createElement('div');
+            newIngredient.classList.add('ingredient');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'ingredient';
+            input.required = true;
+            newIngredient.appendChild(input);
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.textContent = 'Remove';
+            removeButton.onclick = function() {
+                removeIngredient(newIngredient);
+            };
+            newIngredient.appendChild(removeButton);
+            ingredientList.appendChild(newIngredient);
+        }
+
+        function addStep() {
+            const stepList = document.getElementById('stepList');
+            const newStep = document.createElement('div');
+            newStep.classList.add('step');
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.name = 'step';
+            input.required = true;
+            newStep.appendChild(input);
+            const removeButton = document.createElement('button');
+            removeButton.type = 'button';
+            removeButton.textContent = 'Remove';
+            removeButton.onclick = function() {
+                removeStep(newStep);
+            };
+            newStep.appendChild(removeButton);
+            stepList.appendChild(newStep);
+        }
+
+        function removeIngredient(element) {
+            // Only allow removal if it's not the initial ingredient
+            if (!element.querySelector('input[name="initialIngredient"]')) {
+                element.remove();
+            }
+        }
+
+        function removeStep(element) {
+            // Only allow removal if it's not the initial step
+            if (!element.querySelector('input[name="initialStep"]')) {
+                element.remove();
+            }
+        }
+
+        document.getElementById('recipeForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Additional logic to handle form submission (e.g., sending data to server)
+        });
+
+        // Automatically add one ingredient and one step initially
+        addIngredient();
+        addStep();
+    </script>
+</body>
+</html>
