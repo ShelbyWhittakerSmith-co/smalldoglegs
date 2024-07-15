@@ -22,7 +22,7 @@ function buildRecipePage(){
   buildElement('div', 'content_box', 'recipeSteps')
   document.dom_val = document.getElementById('loading').innerHTML = 'Loading...'
   
-  url = "https://smalldoglegs.fly.dev/recipe_id/" + searchParams.get('recipe_id')
+  url = "https://smalldoglegs.fly.dev/recipe/id_search/" + searchParams.get('recipe_id')
   result = hitAPI(url);
   console.log(result)
   
