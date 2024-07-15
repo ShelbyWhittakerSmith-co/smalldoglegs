@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="modules/input_fields.js"></script>
 <title>Recipe Form</title>
 <style>
     
@@ -39,6 +40,25 @@
     h2{
         float: center;
     }
+    .remove-button {
+            background: none;
+            border: none;
+            color: red;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: underline;
+        }
+    .error-message {
+        color: red;
+        font-weight: bold;
+    }
+    input[type=text]{
+        background-color: rgb(187, 187, 187);
+
+    }
+    .recipeform{
+        margin:1%
+    }
 </style>
 </head>
 <body>
@@ -57,106 +77,32 @@
       </div>
       
     <h2>Recipe Form</h2>
-    <div class="form-container">
-        <form id="recipeForm">
-            <label for="recipeName">Name:</label>
-            <input type="text" id="recipeName" name="recipeName" required><br><br>
-
-            <label for="servingSize">Serving Size:</label>
-            <input type="text" id="servingSize" name="servingSize" required><br><br>
-
-            <label for="timeFrame">Time Frame:</label>
-            <input type="text" id="timeFrame" name="timeFrame" required><br><br>
-
-            <fieldset>
-                <legend>Ingredients:</legend>
-                <div id="ingredientList">
-                    <div class="ingredient">
-                        <input type="text" name="ingredient" value="" required>
-                        <!-- Add a hidden input for the first mandatory ingredient -->
-                        <input type="hidden" name="initialIngredient" value="Mandatory Ingredient 1">
-                    </div>
-                </div>
-                <button type="button" onclick="addIngredient()">Add Ingredient</button>
-            </fieldset><br>
-
-            <fieldset>
-                <legend>Steps:</legend>
-                <div id="stepList">
-                    <div class="step">
-                        <input type="text" name="step" value="" required>
-                        <!-- Add a hidden input for the first mandatory step -->
-                        <input type="hidden" name="initialStep" value="Mandatory Step 1">
-                    </div>
-                </div>
-                <button type="button" onclick="addStep()">Add Step</button>
-            </fieldset><br>
-
-            <button type="submit">Submit Recipe</button>
+    <div class="recipeform">
+    <form>
+        Recipe Name: <input type="text" id="rname" name="rname"><br>
+        Servings: <input type="text" id="rservings" name="rservings"><br>
+        Time: <input type="text" id="rtime" name="rtime"><br>
+    </form>
+    <h3>Ingredients</h3>
+    <div id="ingredientError" class="error-message"></div>
+    <ul id="ingredientList"></ul>
+        <div>
+        <form onsubmit="return IngredientFunction()">
+            <input type="text" id="ingredientinput" name="ingredientinput">
+            <input type="submit" value="Submit Ingredient"> 
         </form>
+        <h3>Steps</h3>
+        <div id="stepError" class="error-message"></div>
+        <ul id="stepList"></ul>
+        <form onsubmit="return StepFunction()">
+            <input type="text" id="stepinput" name="stepinput">
+            <input type="submit" value="Submit Step"> 
+        </form>
+        </div><br>
+    <form onsubmit="return SubmitFunction()">
+        <input type="submit" value="Submit Recipe"> 
+    </form>
     </div>
 
-    <script>
-        function addIngredient() {
-            const ingredientList = document.getElementById('ingredientList');
-            const newIngredient = document.createElement('div');
-            newIngredient.classList.add('ingredient');
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.name = 'ingredient';
-            input.required = true;
-            newIngredient.appendChild(input);
-            const removeButton = document.createElement('button');
-            removeButton.type = 'button';
-            removeButton.textContent = 'Remove';
-            removeButton.onclick = function() {
-                removeIngredient(newIngredient);
-            };
-            newIngredient.appendChild(removeButton);
-            ingredientList.appendChild(newIngredient);
-        }
-
-        function addStep() {
-            const stepList = document.getElementById('stepList');
-            const newStep = document.createElement('div');
-            newStep.classList.add('step');
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.name = 'step';
-            input.required = true;
-            newStep.appendChild(input);
-            const removeButton = document.createElement('button');
-            removeButton.type = 'button';
-            removeButton.textContent = 'Remove';
-            removeButton.onclick = function() {
-                removeStep(newStep);
-            };
-            newStep.appendChild(removeButton);
-            stepList.appendChild(newStep);
-        }
-
-        function removeIngredient(element) {
-            // Only allow removal if it's not the initial ingredient
-            if (!element.querySelector('input[name="initialIngredient"]')) {
-                element.remove();
-            }
-        }
-
-        function removeStep(element) {
-            // Only allow removal if it's not the initial step
-            if (!element.querySelector('input[name="initialStep"]')) {
-                element.remove();
-            }
-        }
-
-        document.getElementById('recipeForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent form submission
-            // Additional logic to handle form submission (e.g., sending data to server)
-        });
-
-        // Automatically add one ingredient and one step initially
-        addIngredient();
-        addStep();
-    </script>
-</body>
-</html>
+    </body>
+    </html>

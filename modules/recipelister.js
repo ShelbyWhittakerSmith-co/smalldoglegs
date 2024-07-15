@@ -1,4 +1,4 @@
-function recipeResults(results){
+function recipeListResults(results){
   recipe_format = '<h2>'
   let grocery_list = []
   results2 = JSON.parse(results)
@@ -27,17 +27,17 @@ function buildRecipePage(){
   console.log(result)
   
 }
-async function hitAPI(url) {
-  let myObject = await fetch(url);
-  let myjson = await myObject.text();
-  await recipeResults(myjson)
-}
+// async function hitAPI(url) {
+//   let myObject = await fetch(url);
+//   let myjson = await myObject.text();
+//   await recipeResults(myjson)
+// }
 
 
-async function hitAPI(url) {
+async function hitListAPI(url) {
   let myObject = await fetch(url);
   let myjson = await myObject.text();
-  await recipeResults(myjson)
+  await recipeListResults(myjson)
 }
 
 async function buildElement(type, parent, id){
@@ -53,7 +53,7 @@ function onRecipeListClick(endpoint){
   buildElement('div', 'content_box', 'recipeSteps')
   dom_val = document.getElementById('loading').innerHTML = 'Loading...'
   url = "https://smalldoglegs.fly.dev/" + endpoint 
-  hitAPI(url); 
+  hitListAPI(url); 
 }
 
 function onListResultClick(id){

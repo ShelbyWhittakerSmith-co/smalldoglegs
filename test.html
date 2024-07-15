@@ -3,87 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nested Forms Example</title>
+    <title>Dynamic List Example</title>
     <style>
-d
+        .remove-button {
+            background: none;
+            border: none;
+            color: red;
+            cursor: pointer;
+            font-size: 1em;
+            text-decoration: underline;
+        }
+        .error-message {
+            color: red;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <!-- Main Form -->
-    <form id="main-form" onsubmit="handleMainSubmit(event)">
-        <label for="main-field1">Field 1:</label>
-        <input type="text" id="main-field1" name="main-field1"><br>
-
-        <label for="main-field2">Field 2:</label>
-        <input type="text" id="main-field2" name="main-field2"><br>
-
-        <label for="main-field3">Field 3:</label>
-        <input type="text" id="main-field3" name="main-field3"><br>
-
-        <!-- Display Submitted Data -->
-        <div id="submitted-data" class="submitted-data"></div>
-
-        <!-- Internal Form 1 -->
-        <div class="internal-form">
-            <label for="internal-field1">Internal Field 1:</label>
-            <input type="text" id="internal-field1" name="internal-field1"><br>
-            <button type="button" onclick="handleInternalSubmit1()">Internal Submit 1</button>
-        </div>
-
-        <!-- Internal Form 2 -->
-        <div class="internal-form">
-            <label for="internal-field2">Internal Field 2:</label>
-            <input type="text" id="internal-field2" name="internal-field2"><br>
-            <button type="button" onclick="handleInternalSubmit2()">Internal Submit 2</button>
-        </div>
-
-        <button type="submit">Submit All</button>
+    <h2>Recipe Input</h2>
+    <form onsubmit="return SubmitFunction()">
+        Recipe Name: <input type="text" id="rname" name="rname"><br>
+        Servings: <input type="text" id="rservings" name="rservings"><br>
+        Time: <input type="text" id="rtime" name="rtime"><br>
+        <input type="submit" value="Submit"> 
     </form>
-
+    <h3>Ingredients</h3>
+    <div id="ingredientError" class="error-message"></div>
+    <ul id="ingredientList"></ul>
+    <form onsubmit="return IngredientFunction()">
+        <input type="text" id="ingredientinput" name="ingredientinput"><br>
+        <input type="submit" value="Submit Ingredient"> 
+    </form>
+    <h3>Steps</h3>
+    <div id="stepError" class="error-message"></div>
+    <ul id="stepList"></ul>
+    <form onsubmit="return StepFunction()">
+        <input type="text" id="stepinput" name="stepinput"><br>
+        <input type="submit" value="Submit Step"> 
+    </form>
+    
     <script>
-        const submittedDataDiv = document.getElementById('submitted-data');
+        const myIngredients = [];
+        const mySteps = [];
 
-        function addToSubmittedData(fieldName, value) {
-            const newItem = document.createElement('div');
-            newItem.className = 'submitted-item';
-            newItem.textContent = `${fieldName}: ${value}`;
-            submittedDataDiv.appendChild(newItem);
+        function displayIngredients(items) {
+            const listElement = document.getElementById('ingredientList');
+            const errorElement = document.getElementById('ingredientError');
+            listElement.innerHTML = '';
+            errorElement.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'remove-button';
+                removeButton.onclick = function() {
+                    items.splice(index, 1);
+                    displayIngredients(items);
+                };
+
+                listItem.appendChild(document.createTextNode(' ')); // Add space before button
+                listItem.appendChild(removeButton);
+                listElement.appendChild(listItem);
+            });
         }
 
-        function handleInternalSubmit1() {
-            const internalField1 = document.getElementById('internal-field1').value;
-            if (internalField1) {
-                addToSubmittedData('Internal Field 1', internalField1);
-                document.getElementById('internal-field1').value = '';  // Clear the input
-            } else {
-                alert('Please enter a value in Internal Field 1.');
+        function displaySteps(items) {
+            const listElement = document.getElementById('stepList');
+            const errorElement = document.getElementById('stepError');
+            listElement.innerHTML = '';
+            errorElement.innerHTML = '';
+
+            items.forEach((item, index) => {
+                const listItem = document.createElement('li');
+                listItem.textContent = item;
+
+                const removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.className = 'remove-button';
+                removeButton.onclick = function() {
+                    items.splice(index, 1);
+                    displaySteps(items);
+                };
+
+                listItem.appendChild(document.createTextNode(' ')); // Add space before button
+                listItem.appendChild(removeButton);
+                listElement.appendChild(listItem);
+            });
+        }
+
+        function IngredientFunction() {
+            const ingredientInput = document.getElementById('ingredientinput').value;
+            if (ingredientInput) {
+                myIngredients.push(ingredientInput);
+                displayIngredients(myIngredients);
+                document.getElementById('ingredientinput').value = '';
             }
+            return false; // Prevent form submission
         }
 
-        function handleInternalSubmit2() {
-            const internalField2 = document.getElementById('internal-field2').value;
-            if (internalField2) {
-                addToSubmittedData('Internal Field 2', internalField2);
-                document.getElementById('internal-field2').value = '';  // Clear the input
-            } else {
-                alert('Please enter a value in Internal Field 2.');
+        function StepFunction() {
+            const stepInput = document.getElementById('stepinput').value;
+            if (stepInput) {
+                mySteps.push(stepInput);
+                displaySteps(mySteps);
+                document.getElementById('stepinput').value = '';
             }
+            return false; // Prevent form submission
         }
 
-        function handleMainSubmit(event) {
-            event.preventDefault();
-            const formData = new FormData(document.getElementById('main-form'));
-
-            // Display all form data
-            for (let [name, value] of formData.entries()) {
-                if (value) {
-                    addToSubmittedData(name, value);
-                }
+        function SubmitFunction() {
+            rname = document.getElementById('rname').value
+            rservings = document.getElementById('rservings').value
+            rtime = document.getElementById('rtime').value
+            if (rname.length === 0){
+                alert('The Recipe Name must be populated.');
+                return false;
             }
-
-            // Here you can handle the data submission to the server
-            alert('All data submitted!');
+            if (myIngredients.length === 0) {
+                alert('Ingredients must be submitted');
+                return false; // Prevent form submission
+            }
+            if (mySteps.length === 0) {
+                alert('Steps must be submitted.');
+                return false; // Prevent form submission
+            }
+            message = ('Are you sure you are done?'+
+            '\nRecipe Name: ' + rname +
+            '\nServings:'+ rservings +
+            '\nTime: '+ rtime +
+            '\nIngredients: '+ myIngredients +
+            '\nSteps: '+ mySteps)
+            if (confirm(message)){
+                anotherFunction();
+                return true;
+            }
+                return false;
         }
+        function anotherFunction() {
+   console.log('Ready to hit the API');
+}
+
     </script>
 </body>
 </html>
+
+
